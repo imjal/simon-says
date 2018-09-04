@@ -8,24 +8,20 @@ import java.util.ArrayList;
  * check the sequence that the user inputs to check if correct. It will end the game
  * when needed, and keep track of variables such as the amount of turns. 
  * @author Jessica Lee
- * @author Shannon Park
- * @author Robert Lou
- * @author Amy Liu
- *
  */
 public class SimonSays{
-	private int index; 
-	private final int STARTTURNS = 3; 
-	public ArrayList<String> sequence; 
+	private int currentIndex;
+	private final int STARTTURNS = 3;
+	private ArrayList<String> sequence;
 	private final String[] COLORS = {"g", "r", "y", "b"};
 	private boolean gameOn; 
 	
 	/**
 	 * This is a constructor to create the SimonSays Object
-	 * It sets the index to zero, creates arrayList for sequence, and sets GameOn to false. 
+	 * It sets the currentIndex to zero, creates arrayList for sequence, and sets GameOn to false.
 	 */
 	public SimonSays(){
-		index = 0;
+		currentIndex = 0;
 		sequence = new ArrayList<String>();
 		setGameOn(false); 
 	}
@@ -38,7 +34,7 @@ public class SimonSays{
 		sequence.clear();
 		generateRandomSequence();
 		setGameOn(true);
-		index = 0; 
+		currentIndex = 0;
 	}
 	/**
 	 * This method generates a random sequence that is as long as the variable STARTTURNS
@@ -57,13 +53,13 @@ public class SimonSays{
 	 * @return true or false depending on if color is correct or not. 
 	 */
 	public boolean checkSequence(String color){
-		if((sequence.get(index)).equals(color)){
-			if(index == (sequence.size()-1)){
+		if((sequence.get(currentIndex)).equals(color)){
+			if(currentIndex == (sequence.size()-1)){
 				addToSequence();
-				index=0;
+				currentIndex =0;
 				return true;
 			}
-			index++;
+			currentIndex++;
 			return true; 
 		}
 		else{
@@ -73,10 +69,10 @@ public class SimonSays{
 	}
 	/**
 	 * This mutator method ends the game. It sets the game to false,
-	 * index back to zero, and the ArrayList will clear. 
+	 * currentIndex back to zero, and the ArrayList will clear.
 	 */
 	public void endGame(){
-		index = 0;
+		currentIndex = 0;
 		sequence.clear();
 		setGameOn(false); 
 	}
@@ -86,9 +82,6 @@ public class SimonSays{
 	 */
 	public void addToSequence(){
 		sequence.add(randomColor());
-		for(String help: getSequence()){
-			System.out.println(help);
-		}
 	}
 	
 	/**
@@ -100,19 +93,19 @@ public class SimonSays{
 	}
 
 	/**
-	 * This returns the index
-	 * @return index 
+	 * This returns the currentIndex
+	 * @return currentIndex
 	 */
-	public int getIndex() {
-		return index;
+	public int getCurrentIndex() {
+		return currentIndex;
 	}
 
 	/**
-	 * This is a setter method for the index. 
-	 * @param index This keeps track on which color we are checking
+	 * This is a setter method for the currentIndex.
+	 * @param currentIndex This keeps track on which color we are checking
 	 */
-	public void setIndex(int index) {
-		this.index = index;
+	public void setCurrentIndex(int currentIndex) {
+		this.currentIndex = currentIndex;
 	}
 	
 	/**

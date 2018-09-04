@@ -19,18 +19,14 @@ import javafx.util.Duration;
 /**
  * This class links the Java Code and the UI together, from the FXML attributes. 
  * It handles all actions from the user interface, and links them with the 
- * Somon Says Class. 
+ * Simon Says Class.
  * @author Jessica Lee
- * @author Shannon Park
- * @author Robert Lou
- * @author Amy Liu
- *
  */
 public class Controller implements Initializable{
 	//create Simon Says Object
-	SimonSays ss = new SimonSays();
+	private SimonSays ss = new SimonSays();
 	//creates ArrayList from SimonSays object
-	ArrayList<String> sequence = ss.getSequence();
+	private ArrayList<String> sequence = ss.getSequence();
 	
 	
     @FXML
@@ -53,7 +49,7 @@ public class Controller implements Initializable{
     
     /**
      *This method handles button actions from the Start and Instructions Button. 
-     *STart button will start the game, and instructions will bring up an alert 
+     *Start button will start the game, and instructions will bring up an alert
      *that informs you on how to play the game
      * @param e any button press will trigger this event
      */
@@ -61,9 +57,6 @@ public class Controller implements Initializable{
     private void handleButtonAction(ActionEvent e) {
     	if(e.getSource() == startBtn){
     		ss.start();
-    		for(String help: ss.getSequence()){
-    			System.out.println(help);
-    		}
     		displayColors(ss.getSequence());
     	}
     	if(e.getSource()== instructBtn){
@@ -104,7 +97,7 @@ public class Controller implements Initializable{
     				alertGameOver();
     			}
     		}
-    		if(ss.getIndex() == 0){
+    		if(ss.getCurrentIndex() == 0){
     			displayColors(ss.getSequence());
     		}
     		
