@@ -4,7 +4,7 @@ powered by JavaFX
 ![Alt text](Game-Image.png)
 
 ## Instructions to Play
-Download the Jar File called SimonSays.jar, and open the application. You should have Java installed in order for the game to run.
+Download the Jar File called [SimonSays.jar](out/artifacts/SimonSays_jar/SimonSays.jar), and open the application. You should have Java installed in order for the game to run.
 
 ## Instructions to Download and Contribute
 1. Clone the Git Project to a local repository. 
